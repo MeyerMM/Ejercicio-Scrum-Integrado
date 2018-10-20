@@ -30,33 +30,34 @@ print(result3.text)
 """ Acceso a endpoint /4a/. 
 Recibe una lista de listas con strings como parámetro.
 Retorna un JSON con los strings ordenados alfabeticamente en una lista de listas. """
-result4 = requests.get("http://127.0.0.1:5001/4a/?value=[[e','i','u','a','o'],['z','g','t','b','m']]")  # type: requests.Response
+result4 = requests.get("http://127.0.0.1:5001/4a/?listas=[[e','i','u','a','o'],['z','g','t','b','m']]")  # type: requests.Response
 print(result4.text)
 
 
 """ Acceso a endpoint /1b/. 
 Recibe una lista de listas con strings como parámetro.
-Retorna un JSON con los strings ordenados alfabeticamente en una lista de listas. """
+Retorna un JSON con los strings en una lista de listas pero con los signos de puntuacion eliminados. """
 result5 = requests.get('http://127.0.0.1:5000/filterListSigns/?phrase=[["Carlos","!"],["Julian","!"]]')
-print(result1.text)
+print(result5.text)
 
 
 """ Acceso a endpoint /2b/. 
 Recibe una lista de listas con strings como parámetro.
-Retorna un JSON con los strings ordenados alfabeticamente en una lista de listas. """
+Retorna un JSON con los strings en una lista de listas pero sin los puntos de las frases. """
 result6 = requests.get("http://127.0.0.1:5000/filterStopWords/?phrases=[['hola', 'when'], ['too', 'peter']]")
-print(result2.text)
+print(result6.text)
 
 
 """ Acceso a endpoint /3b/. 
 Recibe una lista de listas con strings como parámetro.
-Retorna un JSON con los strings ordenados alfabeticamente en una lista de listas. """
+Retorna un JSON con los strings mayores de cuatro letras en una lista de listas. """
 result7 = requests.get('http://127.0.0.1:5000/filterList/?phrase=[["tzrgfuzhrf", "hjjkbh", "gg"], ["tzrgfuzhrf22", "hjjkbh", "gg"], ["tzrgfuzhrf", "hjjkbh", "gg"]]')
-print("Result 3: "+result3.text)
+print(result7.text)
 
 
 """ Acceso a endpoint /4b/. 
 Recibe una lista de listas con strings como parámetro.
-Retorna un JSON con los strings ordenados alfabeticamente en una lista de listas. """
+Retorna un JSON con los strings en una lista de listas y ademas muestra informacion adicional como, el numero de listas
+pasadas y el tamaño de la palabra mas grande encontrada. """
 result8 = requests.get('http://127.0.0.1:5000/listInfo/?phrase=[["tzrgfuzhrf", "hjjkbh", "gg"], ["tzrgfuzhrf22", "hjjkbh", "gg"], ["tzrgfuzhrf", "hjjkbh", "gg"]]')
-print(result4.text)
+print(result8.text)
