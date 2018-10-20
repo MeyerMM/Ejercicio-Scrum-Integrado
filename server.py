@@ -25,8 +25,8 @@ app = Flask(__name__)                           # type: Flask
 
 @app.route('/1a/', methods=['GET'])
 def webScrap():
-    """Recibe desde la ruta una lista de listas con.
-    Retorna una lista de listas con."""
+    """Recibe desde la ruta una direccion web
+    Retorna  el texto de la direccion"""
     url = request.args.get('url')
     webpage = urllib.request.urlopen(url)
     soup = BeautifulSoup(webpage, 'html.parser')
@@ -56,8 +56,8 @@ def get_texto():
 
 @app.route('/3a/', methods=['GET'])
 def lowerCase():
-    """Recibe desde la ruta una lista de listas con.
-    Retorna una lista de listas con."""
+    """Recibe desde la ruta una lista de listas con texto
+    Retorna una lista de listas con todo el texto en minuscula"""
     parameter = request.args.get('value')
     list = ast.literal_eval(parameter)
     for x in range(len(list)):
@@ -83,4 +83,4 @@ def get_listas():
 
 if __name__ == "__main__":
     """Inicia la ejecución del servidor."""
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5001, debug=True)
